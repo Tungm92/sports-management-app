@@ -25,6 +25,7 @@ router.post('/', async (req, res) => {
         const currentUser = await User.findById(req.session.user._id);
         currentUser.events.push(req.body);
         await currentUser.save();
+        res.redirect(`/users/${currentUser._id}/events`)
     } catch (error) {
         console.log(error);
         res.redirect('/');

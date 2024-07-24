@@ -6,13 +6,14 @@
     <title>Events Index / Your Events</title>
 </head>
 <body>
+    <%- include('../partials/_navbar.ejs') %>
     <h1>Your Events</h1>
     
     <ul>
         <% events.forEach((event)=>{ %>
             <li>
                 <a href="/users/<%= user._id %>/events/<%= event._id %>">
-                    <%= event.season %> <%= event.type %> on <%= event.month %>, <%= event.day %> at <%= event.hour %>:<%= event.minute %> <%= event.amPm %>
+                    <%= event.season %> <%= event.eventType %> on <%= event.month %>, <%= event.day %> at <%= event.hour %>:<%= event.minute %> <%= event.amPm %>
                 </a>
             </li>
         <% }) %>
