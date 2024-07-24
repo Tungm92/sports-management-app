@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Events Index / Your Events</title>
 </head>
 <body>
+    <h1>Your Events</h1>
     
+    <ul>
+        <% events.forEach((event)=>{ %>
+            <li>
+                <a href="/users/<%= user._id %>/events/<%= event._id %>">
+                    <%= event.season %> <%= event.type %> on <%= event.month %>, <%= event.day %> at <%= event.hour %>:<%= event.minute %> <%= event.amPm %>
+                </a>
+            </li>
+        <% }) %>
+    </ul> 
+    
+    <a href="/users/<%= user._id%>/events/new">Add an event</a>
 </body>
 </html>

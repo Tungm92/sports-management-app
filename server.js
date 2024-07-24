@@ -51,13 +51,7 @@ app.use('/auth', authController);
 
 app.use(isSignedIn)
 
-// CREATE
-
-// READ
-
-// UPDATE
-
-// DELETE
+app.use('/users/:userId/events', eventsController)
 
 app.listen(port, () => {
     console.log(`Mai Teams is ready on port ${port}!`);

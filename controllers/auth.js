@@ -4,23 +4,23 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/user.js');
 
-// route to sign-up
+// route to SIGN-UP
 router.get('/sign-up', (req, res) => {
     res.render('auth/sign-up.ejs');
 });
 
-// route to sign-in
+// route to SIGN-IN
 router.get('/sign-in', (req, res) => {
     res.render('auth/sign-in.ejs');
 });
  
-// destroy session and reroute after sign-out
+// destroy session and reroute after SIGN-OUT
 router.get('/sign-out', (req, res) => {
     req.session.destroy();
     res.redirect('/');
 });
 
-// CREATE an account
+// CREATE an account | POST
 router.post('/sign-up', async (req, res) => {
     try {
         const userInDatabase = await User.findOne({ username: req.body.username})
@@ -46,7 +46,7 @@ router.post('/sign-up', async (req, res) => {
     };
 });
 
-// logging into account
+// LOGIN
 router.post('/sign-in', async (req, res) => {
     try {
         
