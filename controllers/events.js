@@ -6,7 +6,7 @@ const User = require('../models/user.js');
 // READ full list
 router.get('/', async (req, res) => {
     try {
-        const currentUser = await User.findById(req.session.user._id)
+        const currentUser = await User.findById(req.session.user._id);
         res.render('events/index.ejs', {events: currentUser.events});
     } catch (error) {
         console.log(error);
@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
         const currentUser = await User.findById(req.session.user._id);
         currentUser.events.push(req.body);
         await currentUser.save();
-        res.redirect(`/users/${currentUser._id}/events`)
+        res.redirect(`/users/${currentUser._id}/events`);
     } catch (error) {
         console.log(error);
         res.redirect('/');
@@ -78,9 +78,9 @@ router.put('/:eventId', async (req, res) => {
 router.delete('/:eventId', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id);
-        currentUser.events.id(req.params.eventId).deleteOne()
+        currentUser.events.id(req.params.eventId).deleteOne();
         await currentUser.save();
-        res.redirect(`/users/${currentUser._id}/events`)
+        res.redirect(`/users/${currentUser._id}/events`);
     } catch (error) {
         console.log(error);
         res.redirect('/');

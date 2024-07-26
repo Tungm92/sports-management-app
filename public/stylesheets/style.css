@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poiret', 'Roboto';
+    background-color: #FFBD59;
+}
+
+h1 {
+    font-family: 'Poiret', 'Roboto';
+    font-size: 200px;
+    background-color: green
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #83A485; 
+}
+
+.auth-links {
+    display:flex;
+    flex-flow:row wrap;
+}
+
+.link {
+    width: 50%;
+}
+
+/* 
+
+for After sign-out background-image: url('https://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/562A2458.jpg'); 
+for Before sign-in background-image: url('https://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/562A2433-1.jpg);
+for After sign-in background-image: url('http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/562A7049-1.jpg');
+for Outdoor background-image: url('http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/03/562A3953.jpg');
+for Indoor background-image: url('http://www.bostonunitedtrackclub.com/wp-content/uploads/2021/03/IMG_3390-2.jpg');
+for Cross-Country background-image: url('http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/IMG_0154-300x225.jpeg');
+
+*/
+

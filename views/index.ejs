@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Mai Teams homepage</title>
 </head>
 
-<body>
-    
-    <% if (user) { %> 
-        <h1>Welcome back to Mai Teams, <%= user.username %>!</h1>
-    <p>
-        <a herf="/auth/sign-out">Sign out</a>
-    </p>
-    <% } else { %>
-        <h1>Welcome to the Mai Teams app!</h1>
-    <p>
-        <a href="/auth/sign-up">Sign up</a>
-        <a href="/auth/sign-in">Sign in</a>
-    </p>
-    <% } %>
+<body class="index-body">
+    <div class="index-container">
+        <div class="text-container">
+            <% if (user) { %> 
+                <h1 class="welcome">Welcome back to Mai Teams, <%= user.username %>!</h1>
+                <div class="auth-links">
+                    <a class="" herf="/auth/sign-out">Sign out</a>
+                </div>
+            <% } else { %>
+                <h1 class="welcome">Welcome to the Mai Teams app!</h1>
+                <div class="auth-links">
+                    <a class="link" href="/auth/sign-up">Sign up</a>
+                    <a class="link" href="/auth/sign-in">Sign in</a>
+                </div>
+            <% } %>
+        </div>
+    </div>
 
 </body>
 </html>

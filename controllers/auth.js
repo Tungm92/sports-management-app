@@ -23,23 +23,23 @@ router.get('/sign-out', (req, res) => {
 // CREATE an account | POST
 router.post('/sign-up', async (req, res) => {
     try {
-        const userInDatabase = await User.findOne({ username: req.body.username})
+        const userInDatabase = await User.findOne({ username: req.body.username});
         
         // confirm availability of username
         if (userInDatabase) {
-            return res.send('Username already taken')
+            return res.send('Username already taken');
         };
 
         // password is reentered correctly
         if (req.body.password !== req.body.confirmPassword) {
-            return res.send('Password and Confirm Password must match')
+            return res.send('Password and Confirm Password must match');
         };
 
         const hashedPassword = bcrypt.hashSync(req.body.password, 10);
         req.body.password = hashedPassword;
 
         await User.create(req.body);
-        res.redirect('/auth/sign-in')
+        res.redirect('/auth/sign-in');
     } catch (error) {
         console.log(error);
         res.redirect('/');
