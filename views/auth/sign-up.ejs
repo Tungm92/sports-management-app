@@ -9,17 +9,30 @@
 </head>
 
 <body>
-    <div class="sign-up">
-        <h1>Create a new account!</h1>
-        <form action="/auth/sign-up" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required />
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" required />
-            <label for="confirmPassword">Confirm Password:</label>
-            <input type="password" name="confirmPassword" id="confirmPassword" required />
-            <button type="submit">Sign up</button>
-        </form>
+    <h1>Create a new account!</h1>
+    <div class="signup-container">
+        <div class="twoEl-Cont">
+            <form class="auth-form" action="/auth/sign-up" method="POST">
+                <div class="form-child">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" required />
+                </div>
+                <div class="form-child">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required />                
+                </div>
+                <div class="form-child">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" required />    
+                </div>
+                <div class="form-button">
+                    <button type="submit">Sign up</button>
+                </div>
+            </form>
+        </div>
+        <div class="twoEl-Cont">
+            <img src="https://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/562A2458.jpg" class="image">
+        </div>
     </div>
 </body>
 
