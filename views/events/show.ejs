@@ -14,15 +14,42 @@
         <%= event.season %>
         <%= event.eventType %>
     </h1>
-    <p>Date: <%= event.month %>, <%= event.day %>.</p>
-    <p>Time: <%= event.hour %>:<%= event.minute %><%= event.amPm %></p>
-    <p>Status: <% if (event.cancelled) {%>Cancelled<% } else { %>Confirmed<% } %></p>
-    <a href="<%= event._id %>/edit">Edit this event</a>
-    <form 
-        action="<%= event._id %>?_method=DELETE" 
-        method="POST">
-        <button type="submit">Delete this event</button>
-    </form>
+    <div class="show-container">
+        <div class="twoEl-Cont">
+            <div class="image-Cont">
+                <% if (event.season === 'Outdoor') { %>
+                    <img src="http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/03/562A3953.jpg" alt="A child smiling running up to do a long-jump" class="image">
+                  <% } else if (event.season === 'Indoor') { %>
+                    <img src="http://www.bostonunitedtrackclub.com/wp-content/uploads/2021/03/IMG_3390-2.jpg" alt="Four young boys in uniform smile for a group photo" class="image">
+                  <% } else if (event.season === 'Cross-Country' ) { %>
+                    <img src="http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/IMG_0138-scaled.jpg" alt="A group of young girls smile for a group photo holding badges after a run" class="image">
+                  <% } %>
+            </div>
+        </div>
+        <div class="twoEl-Cont">
+            <div class="form-child">
+                <p>Date: <%= event.month %>, <%= event.day %></p>
+            </div>
+            <div class="form-child">
+                <p>Time: <%= event.hour %>:<%= event.minute %> <%= event.amPm %></p>
+            </div>
+            <div class="form-child">
+                <p>Status: <% if (event.cancelled) {%>Cancelled<% } else { %>Confirmed<% } %></p>
+            </div>
+            <div class="form-child">
+                <a href="<%= event._id %>/edit">Edit this event</a>
+            </div>
+            <div class="form-child">
+                <form 
+                    action="<%= event._id %>?_method=DELETE" 
+                    method="POST">
+                    <div class="form-button">
+                        <button class="btn" type="submit">Delete event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

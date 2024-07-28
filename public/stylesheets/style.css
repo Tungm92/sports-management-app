@@ -14,10 +14,18 @@ h1 {
     text-align:center;
 }
 
-.text-container {
+.index-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.banner-container {
     display: flex;
     flex-direction: column;
     flex-wrap:wrap;
+    align-items: center;
 }
 
 .navbar {
@@ -59,10 +67,23 @@ h1 {
 }
 
 .image {
-    display: block;
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: relative;
+}
+
+.image-Cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1080px;
+    max-height: 800px;
     width: 100%;
     height: 100%;
-    position:relative;
 }
 
 .auth-form {
@@ -74,7 +95,6 @@ h1 {
 .form-child {
     display: flex;
     margin: 10px;
-    /* max-width: 30%; */
     justify-content: center;
 }
 
@@ -102,17 +122,41 @@ h1 {
     width: 50%;
     justify-content: center;
     align-items: center;
-    height: 600px;
-    width: auto;
 }
 
-/* 
-for After sign-up background-image: url('https://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/562A2458.jpg'); 
-for Before sign-in background-image: url('https://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/562A2433-1.jpg');
-for After sign-in background-image: url('http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/562A7049-1.jpg');
-for Outdoor background-image: url('http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/03/562A3953.jpg');
-for Indoor background-image: url('http://www.bostonunitedtrackclub.com/wp-content/uploads/2021/03/IMG_3390-2.jpg');
-for Cross-Country background-image: url('http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/IMG_0154-300x225.jpeg');
- */
+.twoEl-Cont-Column {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+.edit-container,
+.show-container,
+.new-container,
+.events-index-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
+.btn {
+    display: flex;
+    width: auto;
+    padding: 10px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(131, 164, 133);
+    border-color: #FFBD59;
+    border-style:solid;
+    font-weight:bold;
+    font-size: 14px;
+    cursor:pointer;
+}
 
+.btn:hover {
+    background-color: rgb(131, 164, 133, 0.3);
+}

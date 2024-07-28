@@ -9,17 +9,27 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Your Events</h1>
-    
-    <ul>
-        <% events.forEach((event)=>{ %>
-            <li>
-                <a href="/users/<%= user._id %>/events/<%= event._id %>">
-                    <%= event.season %> <%= event.eventType %> on <%= event.month %>, <%= event.day %> at <%= event.hour %>:<%= event.minute %> <%= event.amPm %>
-                </a>
-            </li>
-        <% }) %>
-    </ul> 
-    
-    <a href="/users/<%= user._id%>/events/new">Add an event</a>
+    <div class="events-index-container">
+        <div class="twoEl-Cont">
+            <div class="image-Cont">
+                <img src="http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/562A7049-1.jpg" alt="A boy throws up two peace signs at the camera" class="image">
+            </div>
+        </div>
+        <div class="twoEl-Cont-Column">
+            <div class="twoEl-Child"></div>
+            <ul>
+                <% events.forEach((event)=>{ %>
+                    <li>
+                        <a href="/users/<%= user._id %>/events/<%= event._id %>">
+                            <%= event.season %> <%= event.eventType %> on <%= event.month %>, <%= event.day %> at <%= event.hour %>:<%= event.minute %> <%= event.amPm %>
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+            <div class="twoEl-Child">
+                <a href="/users/<%= user._id%>/events/new">Add an event</a>
+            </div> 
+        </div>
+    </div>
 </body>
 </html>

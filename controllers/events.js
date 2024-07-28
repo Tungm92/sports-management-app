@@ -63,6 +63,11 @@ router.get('/:eventId/edit', async (req, res) => {
 // UPDATE | PUT
 router.put('/:eventId', async (req, res) => {
     try {
+        if (req.body.cancelled === 'on') {
+            req.body.cancelled = true;
+        } else {
+            req.body.cancelled = false;
+        };
         const currentUser = await User.findById(req.session.user._id);
         const event = currentUser.events.id(req.params.eventId);
         event.set(req.body);

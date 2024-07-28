@@ -9,218 +9,245 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Edit Event: <%= event.season %> <%= event.eventType %></h1>
-    <form 
-      action="/users/<%= user._id %>/events/<%= event._id %>?_method=PUT"
-      method="POST"
-    >
-      <label for="eventType">Type:</label>
-      <select id="eventType" name="eventType">
-        <option value="Meet"
-        <%= event.eventType === "Meet" ? "selected" : "" %>
-        >Meet</option>
-        <option value="Practice"
-        <%= event.eventType === "Practice" ? "selected" : ""%>
-        >Practice</option>
-      </select>
+    
+    <div class="edit-container">
+      <div class="twoEl-Cont">
+        <div class="image-Cont">
+          <% if (event.season === 'Outdoor') { %>
+            <img src="http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/03/562A3953.jpg" alt="A child smiling running up to do a long-jump" class="image">
+          <% } else if (event.season === 'Indoor') { %>
+            <img src="http://www.bostonunitedtrackclub.com/wp-content/uploads/2021/03/IMG_3390-2.jpg" alt="Four young boys in uniform smile for a group photo" class="image">
+          <% } else if (event.season === 'Cross-Country' ) { %>
+            <img src="http://www.bostonunitedtrackclub.com/wp-content/uploads/2024/02/IMG_0138-scaled.jpg" alt="A group of young girls smile for a group photo holding badges after a run" class="image">
+          <% } %>
+        </div>
+    </div>
+      <div class="twoEl-Cont">
+        <form 
+        action="/users/<%= user._id %>/events/<%= event._id %>?_method=PUT"
+        method="POST"
+        >
+          <div class="form-child">
+            <label for="eventType">Type:</label>
+            <select id="eventType" name="eventType">
+              <option value="Meet"
+              <%= event.eventType === "Meet" ? "selected" : "" %>
+              >Meet</option>
+              <option value="Practice"
+              <%= event.eventType === "Practice" ? "selected" : ""%>
+              >Practice</option>
+            </select>
 
-      <label for="Date">Date:</label>
-      <select id="month" name="month">
-        <option value="January"
-        <%= event.month === "January" ? "selected" : ""%>
-        >01</option>
-        <option value="February"
-        <%= event.month === "February" ? "selected" : ""%>
-        >02</option>
-        <option value="March"
-        <%= event.month === "March" ? "selected" : ""%>
-        >03</option>
-        <option value="April"
-        <%= event.month === "April" ? "selected" : ""%>
-        >04</option>
-        <option value="May"
-        <%= event.month === "May" ? "selected" : ""%>
-        >05</option>
-        <option value="June"
-        <%= event.month === "June" ? "selected" : ""%>
-        >06</option>
-        <option value="July"
-        <%= event.month === "July" ? "selected" : ""%>
-        >07</option>
-        <option value="August"
-        <%= event.month === "August" ? "selected" : ""%>
-        >08</option>
-        <option value="September"
-        <%= event.month === "September" ? "selected" : ""%>
-        >09</option>
-        <option value="October"
-        <%= event.month === "October" ? "selected" : ""%>
-        >10</option>
-        <option value="November"
-        <%= event.month === "November" ? "selected" : ""%>
-        >11</option>
-        <option value="December"
-        <%= event.month === "December" ? "selected" : ""%>
-        >12</option>
-      </select>
-      <select id="day" name="day">
-        <option value="01"
-        <%= event.day === "01" ? "selected" : ""%>
-        >01</option>
-        <option value="02"
-        <%= event.day === "02" ? "selected" : ""%>
-        >02</option>
-        <option value="03"
-        <%= event.day === "03" ? "selected" : ""%>
-        >03</option>
-        <option value="04"
-        <%= event.day === "04" ? "selected" : ""%>
-        >04</option>
-        <option value="05"
-        <%= event.day === "05" ? "selected" : ""%>
-        >05</option>
-        <option value="06"
-        <%= event.day === "06" ? "selected" : ""%>
-        >06</option>
-        <option value="07"
-        <%= event.day === "07" ? "selected" : ""%>
-        >07</option>
-        <option value="08"
-        <%= event.day === "08" ? "selected" : ""%>
-        >08</option>
-        <option value="09"
-        <%= event.day === "09" ? "selected" : ""%>
-        >09</option>
-        <option value="10"
-        <%= event.day === "10" ? "selected" : ""%>
-        >10</option>
-        <option value="11"
-        <%= event.day === "11" ? "selected" : ""%>
-        >11</option>
-        <option value="12"
-        <%= event.day === "12" ? "selected" : ""%>
-        >12</option>
-        <option value="13"
-        <%= event.day === "13" ? "selected" : ""%>
-        >13</option>
-        <option value="14"
-        <%= event.day === "14" ? "selected" : ""%>
-        >14</option>
-        <option value="15"
-        <%= event.day === "15" ? "selected" : ""%>
-        >15</option>
-        <option value="16"
-        <%= event.day === "16" ? "selected" : ""%>
-        >16</option>
-        <option value="17"
-        <%= event.day === "17" ? "selected" : ""%>
-        >17</option>
-        <option value="18"
-        <%= event.day === "18" ? "selected" : ""%>
-        >18</option>
-        <option value="19"
-        <%= event.day === "19" ? "selected" : ""%>
-        >19</option>
-        <option value="20"
-        <%= event.day === "20" ? "selected" : ""%>
-        >20</option>
-        <option value="21"
-        <%= event.day === "21" ? "selected" : ""%>
-        >21</option>
-        <option value="22"
-        <%= event.day === "22" ? "selected" : ""%>
-        >22</option>
-        <option value="23"
-        <%= event.day === "23" ? "selected" : ""%>
-        >23</option>
-        <option value="24"
-        <%= event.day === "24" ? "selected" : ""%>
-        >24</option>
-        <option value="25"
-        <%= event.day === "25" ? "selected" : ""%>
-        >25</option>
-        <option value="26"
-        <%= event.day === "26" ? "selected" : ""%>
-        >26</option>
-        <option value="27"
-        <%= event.day === "27" ? "selected" : ""%>
-        >27</option>
-        <option value="28"
-        <%= event.day === "28" ? "selected" : ""%>
-        >28</option>
-        <option value="29"
-        <%= event.day === "29" ? "selected" : ""%>
-        >29</option>
-        <option value="30"
-        <%= event.day === "30" ? "selected" : ""%>
-        >30</option>
-        <option value="31"
-        <%= event.day === "31" ? "selected" : ""%>
-        >31</option>
-      </select>
-      <label for="time">Time:</label>
-      <select id="hour" name="hour">
-        <option value="01"
-        <%= event.hour === "01" ? "selected" : ""%>
-        >01</option>
-        <option value="02"
-        <%= event.hour === "02" ? "selected" : ""%>
-        >02</option>
-        <option value="03"
-        <%= event.hour === "03" ? "selected" : ""%>
-        >03</option>
-        <option value="04"
-        <%= event.hour === "04" ? "selected" : ""%>
-        >04</option>
-        <option value="05"
-        <%= event.hour === "05" ? "selected" : ""%>
-        >05</option>
-        <option value="06"
-        <%= event.hour === "06" ? "selected" : ""%>
-        >06</option>
-        <option value="07"
-        <%= event.hour === "07" ? "selected" : ""%>
-        >07</option>
-        <option value="08"
-        <%= event.hour === "08" ? "selected" : ""%>
-        >08</option>
-        <option value="09"
-        <%= event.hour === "09" ? "selected" : ""%>
-        >09</option>
-        <option value="10"
-        <%= event.hour === "10" ? "selected" : ""%>
-        >10</option>
-        <option value="11"
-        <%= event.hour === "11" ? "selected" : ""%>
-        >11</option>
-        <option value="12"
-        <%= event.hour === "12" ? "selected" : ""%>
-        >12</option>
-      </select>
-      <select id="minute" name="minute">
-        <option value="00"
-        <%= event.minute === "00" ? "selected" : ""%>
-        >00</option>
-        <option value="15"
-        <%= event.minute === "15" ? "selected" : ""%>
-        >15</option>
-        <option value="30"
-        <%= event.minute === "30" ? "selected" : ""%>
-        >30</option>
-        <option value="45"
-        <%= event.minute === "45" ? "selected" : ""%>
-        >45</option>
-      </select>
-      <select id="amPm" name="amPm">
-        <option value="AM"
-        <%= event.amPm === "AM" ? "selected" : ""%>
-        >AM</option>
-        <option value="PM"
-        <%= event.amPm === "PM" ? "selected" : ""%>
-        >PM</option>
-      </select>
-      <label for="cancelled">Cancel</label>
-      <input type="checkbox" name="cancelled" id="cancelled" <% if (event.cancelled) { %>checked<% } %> />
-      <button type="submit">Update Event</button>
-    </form>
+          </div>
+          <div class="form-child">
+            <label for="Date">Date:</label>
+            <select id="month" name="month">
+              <option value="January"
+              <%= event.month === "January" ? "selected" : ""%>
+              >01</option>
+              <option value="February"
+              <%= event.month === "February" ? "selected" : ""%>
+              >02</option>
+              <option value="March"
+              <%= event.month === "March" ? "selected" : ""%>
+              >03</option>
+              <option value="April"
+              <%= event.month === "April" ? "selected" : ""%>
+              >04</option>
+              <option value="May"
+              <%= event.month === "May" ? "selected" : ""%>
+              >05</option>
+              <option value="June"
+              <%= event.month === "June" ? "selected" : ""%>
+              >06</option>
+              <option value="July"
+              <%= event.month === "July" ? "selected" : ""%>
+              >07</option>
+              <option value="August"
+              <%= event.month === "August" ? "selected" : ""%>
+              >08</option>
+              <option value="September"
+              <%= event.month === "September" ? "selected" : ""%>
+              >09</option>
+              <option value="October"
+              <%= event.month === "October" ? "selected" : ""%>
+              >10</option>
+              <option value="November"
+              <%= event.month === "November" ? "selected" : ""%>
+              >11</option>
+              <option value="December"
+              <%= event.month === "December" ? "selected" : ""%>
+              >12</option>
+            </select>
+            <select id="day" name="day">
+              <option value="01"
+              <%= event.day === "01" ? "selected" : ""%>
+              >01</option>
+              <option value="02"
+              <%= event.day === "02" ? "selected" : ""%>
+              >02</option>
+              <option value="03"
+              <%= event.day === "03" ? "selected" : ""%>
+              >03</option>
+              <option value="04"
+              <%= event.day === "04" ? "selected" : ""%>
+              >04</option>
+              <option value="05"
+              <%= event.day === "05" ? "selected" : ""%>
+              >05</option>
+              <option value="06"
+              <%= event.day === "06" ? "selected" : ""%>
+              >06</option>
+              <option value="07"
+              <%= event.day === "07" ? "selected" : ""%>
+              >07</option>
+              <option value="08"
+              <%= event.day === "08" ? "selected" : ""%>
+              >08</option>
+              <option value="09"
+              <%= event.day === "09" ? "selected" : ""%>
+              >09</option>
+              <option value="10"
+              <%= event.day === "10" ? "selected" : ""%>
+              >10</option>
+              <option value="11"
+              <%= event.day === "11" ? "selected" : ""%>
+              >11</option>
+              <option value="12"
+              <%= event.day === "12" ? "selected" : ""%>
+              >12</option>
+              <option value="13"
+              <%= event.day === "13" ? "selected" : ""%>
+              >13</option>
+              <option value="14"
+              <%= event.day === "14" ? "selected" : ""%>
+              >14</option>
+              <option value="15"
+              <%= event.day === "15" ? "selected" : ""%>
+              >15</option>
+              <option value="16"
+              <%= event.day === "16" ? "selected" : ""%>
+              >16</option>
+              <option value="17"
+              <%= event.day === "17" ? "selected" : ""%>
+              >17</option>
+              <option value="18"
+              <%= event.day === "18" ? "selected" : ""%>
+              >18</option>
+              <option value="19"
+              <%= event.day === "19" ? "selected" : ""%>
+              >19</option>
+              <option value="20"
+              <%= event.day === "20" ? "selected" : ""%>
+              >20</option>
+              <option value="21"
+              <%= event.day === "21" ? "selected" : ""%>
+              >21</option>
+              <option value="22"
+              <%= event.day === "22" ? "selected" : ""%>
+              >22</option>
+              <option value="23"
+              <%= event.day === "23" ? "selected" : ""%>
+              >23</option>
+              <option value="24"
+              <%= event.day === "24" ? "selected" : ""%>
+              >24</option>
+              <option value="25"
+              <%= event.day === "25" ? "selected" : ""%>
+              >25</option>
+              <option value="26"
+              <%= event.day === "26" ? "selected" : ""%>
+              >26</option>
+              <option value="27"
+              <%= event.day === "27" ? "selected" : ""%>
+              >27</option>
+              <option value="28"
+              <%= event.day === "28" ? "selected" : ""%>
+              >28</option>
+              <option value="29"
+              <%= event.day === "29" ? "selected" : ""%>
+              >29</option>
+              <option value="30"
+              <%= event.day === "30" ? "selected" : ""%>
+              >30</option>
+              <option value="31"
+              <%= event.day === "31" ? "selected" : ""%>
+              >31</option>
+            </select>
+          </div>
+          <div class="form-child">
+            <label for="time">Time:</label>
+            <select id="hour" name="hour">
+              <option value="01"
+              <%= event.hour === "01" ? "selected" : ""%>
+              >01</option>
+              <option value="02"
+              <%= event.hour === "02" ? "selected" : ""%>
+              >02</option>
+              <option value="03"
+              <%= event.hour === "03" ? "selected" : ""%>
+              >03</option>
+              <option value="04"
+              <%= event.hour === "04" ? "selected" : ""%>
+              >04</option>
+              <option value="05"
+              <%= event.hour === "05" ? "selected" : ""%>
+              >05</option>
+              <option value="06"
+              <%= event.hour === "06" ? "selected" : ""%>
+              >06</option>
+              <option value="07"
+              <%= event.hour === "07" ? "selected" : ""%>
+              >07</option>
+              <option value="08"
+              <%= event.hour === "08" ? "selected" : ""%>
+              >08</option>
+              <option value="09"
+              <%= event.hour === "09" ? "selected" : ""%>
+              >09</option>
+              <option value="10"
+              <%= event.hour === "10" ? "selected" : ""%>
+              >10</option>
+              <option value="11"
+              <%= event.hour === "11" ? "selected" : ""%>
+              >11</option>
+              <option value="12"
+              <%= event.hour === "12" ? "selected" : ""%>
+              >12</option>
+            </select>
+            <select id="minute" name="minute">
+              <option value="00"
+              <%= event.minute === "00" ? "selected" : ""%>
+              >00</option>
+              <option value="15"
+              <%= event.minute === "15" ? "selected" : ""%>
+              >15</option>
+              <option value="30"
+              <%= event.minute === "30" ? "selected" : ""%>
+              >30</option>
+              <option value="45"
+              <%= event.minute === "45" ? "selected" : ""%>
+              >45</option>
+            </select>
+            <select id="amPm" name="amPm">
+              <option value="AM"
+              <%= event.amPm === "AM" ? "selected" : ""%>
+              >AM</option>
+              <option value="PM"
+              <%= event.amPm === "PM" ? "selected" : ""%>
+              >PM</option>
+            </select>
+          </div>
+          <div class="form-child">
+            <label for="cancelled">Cancel</label>
+            <input type="checkbox" name="cancelled" id="cancelled" <% if (event.cancelled) { %>checked<% } %> />
+          </div>
+          <div class="form-button">
+            <button class="btn" type="submit">Update Event</button>
+          </div>
+      </form>
+      </div>
+    </div>
+    
 </body>
 </html>
